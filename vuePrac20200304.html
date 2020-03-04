@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id = "prac">
+            <h3>첫번째 인스턴스 영역</h3>
+            <global></global>
+            <local></local>
+        </div>
+
+        <div id = "prac_two">
+            <h3>두번째 인스턴스 영역</h3>
+            <global></global>
+            <local></local>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        var cmp = {
+            template : '<div>Local</div>'
+        };
+
+        Vue.component('global',{
+            template : '<div>Global</div>'
+        });
+
+        new Vue({
+            el : '#prac',      
+            components : {
+                'local':cmp
+            }      
+        });
+
+        new Vue({
+            el : '#prac_two'
+        });
+      
+    </script>
+    </body>
+</html>
