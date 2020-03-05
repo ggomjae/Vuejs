@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div id = "prac">
+            <local1></local1>
+            <local2></local2>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+
+        var data1 = {
+            template : '<div> A Component : {{ cmpdata1 }}</div>',
+            data: function(){
+                return {
+                    cmpdata1 : 10
+                }
+            }
+        };
+
+        var data2 = {
+            template : '<div> B Component : {{ cmpdata2 }}</div>',
+            data: function(){
+                return {
+                    cmpdata2 : data1.data.cmpdata1
+                }
+            }
+        };
+
+        new Vue({
+            el : '#prac',
+            components : {
+                'local1' : data1,
+                'local2' : data2
+            }    
+        });
+    </script>  
+    </body>
+</html>
