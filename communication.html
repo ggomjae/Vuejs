@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="prac">
+            <Acomponent v-on:show-log="print">HHH</Acomponent>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+        <script>
+            Vue.component('Acomponent',{
+                template: '<button v-on:click="madeFunction">HHH</button>',
+                methods : {
+                    madeFunction : function(){
+                        this.$emit('show-log');
+                    }
+                }
+            });
+
+            new Vue({
+                el: '#prac',
+                data :{
+                    message : 'ggomjae'
+                },
+                methods:{
+                    print:function(){
+                        console.log("받았당");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
