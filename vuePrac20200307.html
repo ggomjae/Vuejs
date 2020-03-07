@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id = "prac">
+            <Acomponent></Acomponent>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script >
+        var eventBus = new Vue();
+        
+        Vue.component('Acomponent',{
+            template : '<div>GGOMJAE<button v-on:click="showFunction">클릭해봐</button></div>',
+            methods : {
+                showFunction : function(){
+                    eventBus.$emit('triggerFunction',19930218);
+                }
+            }
+        });
+
+        var prac = new Vue({
+            el : '#prac',
+            created : function(){
+                eventBus.$on('triggerFunction',function(data){
+                    console.log("받은값 :",data);
+                });
+            }
+        });
+
+    </script>   
+    </body>
+</html>
