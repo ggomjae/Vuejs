@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name ="viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id = "prac">
+            <h1>Vue Router !!</h1>
+            <p>
+                <router-link to="/main">Main 으로 이동 !</router-link>
+                <router-link to="/sub">Sub로 이동 !</router-link>
+            </p>
+            <router-view></router-view>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script> 
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+        var Main = { 
+            template : '<div>main</div>'
+        };
+        var Sub = {
+            template : '<div>sub</div>'
+        };
+
+        var router = new VueRouter({
+            routes = [
+                 {path : '/main', component : Main},
+                 {path : '/sub' , component : Sub}
+            ]
+        });
+
+        var app = new Vue({
+            router 
+        }).$mount('#prac');
+
+    </script>   
+    </body>
+
+</html>
